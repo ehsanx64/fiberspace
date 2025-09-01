@@ -15,7 +15,7 @@ func main() {
 		return c.SendString(application.GetMessage())
 	})
 
-	app.Static("/", "./static/")
+	app.Static("/", "./frontend/dist/")
 
 	log.Fatal(app.Listen(":3000"))
 }
