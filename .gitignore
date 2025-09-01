@@ -27,3 +27,4 @@ go.work.sum
 # air files
 tmp/
 cmd/tmp
+data/
