@@ -1,22 +1,23 @@
 import { useState } from 'react'
-import { Button } from '@chakra-ui/react'
-// Supports weights 200-900
+import {
+    VStack,
+    Heading, Button
+} from '@chakra-ui/react'
+import { RiAddLine } from "react-icons/ri"
 import '@fontsource-variable/nunito';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <h1>FiberSpace</h1>
-      <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-      </div>
-    </>
-  )
+    return (
+        <VStack>
+            <Heading>FiberSpace</Heading>
+            <Button onClick={() => setCount((count) => count + 1)}>
+                <RiAddLine />{count} clicks
+            </Button>
+        </VStack>
+    )
 }
 
 export default App
