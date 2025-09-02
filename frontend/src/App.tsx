@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Button } from '@chakra-ui/react'
+// Supports weights 200-900
+import '@fontsource-variable/nunito';
 import './App.css'
 
 function App() {
