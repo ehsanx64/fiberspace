@@ -1,22 +1,34 @@
 import { useState } from 'react'
 import {
-    VStack,
+    VStack, Container, Center,
     Heading, Button
 } from '@chakra-ui/react'
 import { RiAddLine } from "react-icons/ri"
 import '@fontsource-variable/nunito';
 import './App.css'
 
+import { Navbar } from '@/components/Navbar';
+
 function App() {
     const [count, setCount] = useState(0)
 
     return (
-        <VStack>
-            <Heading>FiberSpace</Heading>
-            <Button onClick={() => setCount((count) => count + 1)}>
-                <RiAddLine />{count} clicks
-            </Button>
-        </VStack>
+        <>
+            <Navbar />
+
+            <VStack style={{'gap': '10px'}} p="2">
+                <Container py="2" centerContent={true}>
+                    <Heading>FiberSpace</Heading>    
+                </Container>
+
+                <Container py="2" centerContent={true}>
+                    <Button onClick={() => setCount((count) => count + 1)}>
+                        <RiAddLine />{count} clicks
+                    </Button>
+                </Container>
+            </VStack>
+        </>
+        
     )
 }
 
