@@ -1,9 +1,10 @@
 import {
-    Container, Flex,
-    Button, CloseButton, Drawer, Portal, Link
+    Container, Flex, Spacer,
+    Button, Drawer, Portal, Link
 } from "@chakra-ui/react"
-import type { ReactNode } from "react";
-import { RiMenuLine } from "react-icons/ri";
+import { useContext, type ReactNode } from "react";
+import { RiMenuLine, RiReactjsFill } from "react-icons/ri";
+import { AppContext } from '@/contexts/App';
 
 interface NavbarLink {
     title: string;
@@ -26,8 +27,15 @@ const navbarLinks: NavbarLink[] = [
 ]
 
 export const Navbar = () => {
-    const renderLinks = (): ReactNode[] => {
+    const app = useContext(AppContext);
+
+    const renderLinks = (lightText: boolean = false): ReactNode[] => {
         let output: ReactNode[] = [];
+        const styles: any = {};
+
+        if (lightText) {
+            styles.color = 'white';
+        }
 
         if (navbarLinks.length < 1) {
             return output;
@@ -35,10 +43,7 @@ export const Navbar = () => {
 
         navbarLinks.forEach((l) => {
             output.push(
-                <Link px="2" href={l.url} style={{
-                    color: 'white',
-                    backgroundColor: 'navy'
-                }}>{l.title}</Link>
+                <Link key={`navlink-${l.url}`} style={styles} px="2" href={l.url}>{l.title}</Link>
             );
         })
 
@@ -47,19 +52,24 @@ export const Navbar = () => {
 
     return (
         <Drawer.Root size="xs" placement={"start"}>
-            <Container maxW={"960px"} py="2" px="8">
-                <Flex gap={"2"}>
-                    <Drawer.Trigger asChild hideFrom={"480px"}>
-                        <Button variant="ghost" size="md">
-                            <RiMenuLine />
-                        </Button>
-                    </Drawer.Trigger>
-
+            <Container style={{backgroundColor: 'navy',color: 'white'}} py="2" px="8">
+                <Container maxW={"1080px"}>
+                    <Flex justifyContent="start" gap={"2"}>
+                        <RiReactjsFill size="36px" color="white" />
                     
-                    <Flex gap={"4"} hideBelow={"481px"}>
-                        {renderLinks()}
+                        <Flex hideBelow={"481px"} style={{color: 'white'}}>
+                            {renderLinks(true)}
+                        </Flex>
+
+                        <Spacer />
+
+                        <Drawer.Trigger float={'right'}asChild hideFrom={"480px"}>
+                            <Button variant="plain" size="md">
+                                <RiMenuLine color="white" />
+                            </Button>
+                        </Drawer.Trigger>
                     </Flex>
-                </Flex>
+                </Container>
             </Container>
 
             <Portal>
@@ -67,7 +77,7 @@ export const Navbar = () => {
                 <Drawer.Positioner>
                     <Drawer.Content>
                         <Drawer.Header>
-                            <Drawer.Title>Drawer Title</Drawer.Title>
+                            <Drawer.Title>{app.name}</Drawer.Title>
                         </Drawer.Header>
                         <Drawer.Body>
                             <Flex direction={"column"} gap={"4"}>
@@ -75,11 +85,11 @@ export const Navbar = () => {
                             </Flex>
                         </Drawer.Body>
                         <Drawer.Footer>
-                            <Button variant="outline">Cancel</Button>
-                            <Button>Save</Button>
+                            {/* <Button variant="outline">Cancel</Button>
+                            <Button>Save</Button> */}
                         </Drawer.Footer>
                         <Drawer.CloseTrigger asChild>
-                            <CloseButton size="sm" />
+                            {/* <CloseButton size="sm" /> */}
                         </Drawer.CloseTrigger>
                     </Drawer.Content>
                 </Drawer.Positioner>
