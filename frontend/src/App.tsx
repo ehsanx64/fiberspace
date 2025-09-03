@@ -1,36 +1,31 @@
-import { useState } from 'react'
-import {
-    VStack, Container,
-    Heading, Button
-} from '@chakra-ui/react'
-import { RiAddLine } from "react-icons/ri"
+import { BrowserRouter, Routes, Route } from 'react-router'
 // @ts-ignore
 import '@fontsource-variable/nunito';
-import './App.css'
-import { AppContext, appDefaults } from '@/contexts/App';
 
+import { AppContext, appDefaults } from '@/contexts/App';
 import { Navbar } from '@/components/Navbar';
 
-function App() {
-    const [count, setCount] = useState(0)
+// Import the pages
+import Home from '@/pages/Home';
+import About from '@/pages/About';
 
+import './App.css'
+
+function App() {
     return (
         <>
-            <AppContext value={appDefaults}>
-                <Navbar />
+            <BrowserRouter>
+                <AppContext value={appDefaults}>
+                    <Navbar />
 
-                <VStack style={{ 'gap': '10px' }} p="2">
-                    <Container py="2" centerContent={true}>
-                        <Heading>FiberSpace</Heading>
-                    </Container>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/about" element={<About />} />
+                    </Routes>
+                    
+                </AppContext>
+            </BrowserRouter>
 
-                    <Container py="2" centerContent={true}>
-                        <Button onClick={() => setCount((count) => count + 1)}>
-                            <RiAddLine />{count} clicks
-                        </Button>
-                    </Container>
-                </VStack>
-            </AppContext>
         </>
     )
 }
