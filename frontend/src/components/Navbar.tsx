@@ -8,6 +8,8 @@ import { useContext, type ReactNode } from "react";
 import { RiMenuLine, RiReactjsFill } from "react-icons/ri";
 import { AppContext } from '@/contexts/App';
 
+import './Navbar.css';
+
 interface NavbarLink {
     title: string;
     url: string;
@@ -53,16 +55,14 @@ export const Navbar = () => {
     }
 
     return (
-        <Drawer.Root size="xs" placement={"start"} open={open} >
-            <Container style={{backgroundColor: 'navy',color: 'white'}} py="2" px="8">
+        <Drawer.Root size="xs" placement={"start"} open={open} onInteractOutside={onClose}>
+            <Container className="navbar-wrapper" py="2" px="8">
                 <Container maxW={"1080px"}>
                     <Flex justifyContent="start" gap={"2"}>
                         <RiReactjsFill size="36px" color="white" />
                     
                         <Flex hideBelow={"481px"} alignItems="center" gap={"4"} 
-                        style={{
-                            color: 'white'
-                        }}>
+                        className="navbar-link-wrapper">
                             {renderLinks(true)}
                         </Flex>
 
@@ -85,7 +85,7 @@ export const Navbar = () => {
                             <Drawer.Title>{app.name}</Drawer.Title>
                         </Drawer.Header>
                         <Drawer.Body>
-                            <Flex direction={"column"} gap={"4"}>
+                            <Flex direction={"column"} gap={"4"} className="sidebar-link-wrapper">
                                 {renderLinks()}
                             </Flex>
                         </Drawer.Body>

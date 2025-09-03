@@ -1,0 +1,16 @@
+.navbar-wrapper {
+    background-color: rgb(99, 99, 248);
+    color: white;
+}
+
+.navbar-link-wrapper  {
+    color: white;
+}
+
+.sidebar-link-wrapper {
+}
+
+.sidebar-link-wrapper .active,
+.navbar-link-wrapper .active {
+    font-weight: bold;
+}
