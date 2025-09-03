@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import {
-    VStack, Container, Center,
+    VStack, Container, 
     Heading, Button
 } from '@chakra-ui/react'
 import { RiAddLine } from "react-icons/ri"
+// @ts-ignore
 import '@fontsource-variable/nunito';
 import './App.css'
 
