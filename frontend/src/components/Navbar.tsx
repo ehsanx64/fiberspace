@@ -24,6 +24,10 @@ const navbarLinks: NavbarLink[] = [
         title: 'About',
         url: '/about'
     },
+    {
+        title: 'Login',
+        url: '/login'
+    },
 ]
 
 export const Navbar = () => {
@@ -56,7 +60,7 @@ export const Navbar = () => {
 
     return (
         <Drawer.Root size="xs" placement={"start"} open={open} onInteractOutside={onClose}>
-            <Container className="navbar-wrapper" py="2" px="8">
+            <Container className="navbar-wrapper">
                 <Container maxW={"1080px"}>
                     <Flex justifyContent="start" gap={"2"}>
                         <RiReactjsFill size="36px" color="white" />

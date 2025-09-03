@@ -8,6 +8,7 @@ import { Navbar } from '@/components/Navbar';
 // Import the pages
 import Home from '@/pages/Home';
 import About from '@/pages/About';
+import Login from '@/pages/Login';
 
 import './App.css'
 
@@ -21,8 +22,8 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
-                    </Routes>
-                    
+                        <Route path="/login" element={<Login />} />
+                    </Routes>                    
                 </AppContext>
             </BrowserRouter>
 

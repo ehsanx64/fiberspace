@@ -3,14 +3,14 @@ import {
 } from '@chakra-ui/react'
 import { Page } from '@/components/Page';
 
-function About() {
+function Login() {
     return (
         <Page>
             <Container py="2" centerContent={true}>
-                <Heading>About</Heading>
+                <Heading>Login</Heading>
             </Container>
         </Page>
     );
 }
 
-export default About
+export default Login
