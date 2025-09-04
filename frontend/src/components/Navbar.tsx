@@ -60,7 +60,7 @@ export const Navbar = () => {
 
     return (
         <Drawer.Root size="xs" placement={"start"} open={open} onInteractOutside={onClose}>
-            <Container className="navbar-wrapper">
+            <Container className="navbar-wrapper" py="4">
                 <Container maxW={"1080px"}>
                     <Flex justifyContent="start" gap={"2"}>
                         <RiReactjsFill size="36px" color="white" />

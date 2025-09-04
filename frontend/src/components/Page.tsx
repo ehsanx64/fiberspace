@@ -9,8 +9,8 @@ interface PageProps {
 
 export const Page: React.FC<PageProps> = ({children}) => {
     return (
-        <Container>
-            <VStack style={{ 'gap': '10px' }} p="2">
+        <Container maxW={"1080px"}>
+            <VStack gap="10px" alignItems="start" p="2">
                 {children}    
             </VStack>            
         </Container>

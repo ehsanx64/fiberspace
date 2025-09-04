@@ -6,8 +6,8 @@ import { Page } from '@/components/Page';
 function Login() {
     return (
         <Page>
-            <Container py="2" centerContent={true}>
-                <Heading>Login</Heading>
+            <Container px="0" py="1" centerContent={true}>
+                <Heading size="5xl">Login</Heading>
             </Container>
         </Page>
     );
